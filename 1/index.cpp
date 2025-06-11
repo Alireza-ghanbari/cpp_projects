@@ -3,9 +3,10 @@
 using namespace std;
 
 int main() {
-    int x = 10, y = 20 ,z;
-    z = (x > y)? x : y;
-    cout << z;
+    int x;
+    cout << "Enter score" << endl;
+    cin >> x;
+    x >= 10? cout << "Passed!": cout << "Falied!";
 
     return 0;
 }

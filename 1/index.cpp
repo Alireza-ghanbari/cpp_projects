@@ -1,12 +1,20 @@
 #include <iostream>
+#include <math.h>
 
 using namespace std;
 
-int main() {
-    int x;
-    cout << "Enter score" << endl;
+int main()
+{
+    float x, s;
+    cout << "Enter x: ";
     cin >> x;
-    x >= 10? cout << "Passed!": cout << "Falied!";
+    if (x < 0)
+        cout << "x is negative" << endl;
+    else
+    {
+        s = sqrt(x);
+        cout << "sqrt of x is: " << s << endl;
+    }
 
     return 0;
 }

@@ -3,11 +3,9 @@
 using namespace std;
 
 int main() {
-    float a,b,c,d;
-    cout << "Enter two float number" << endl;
-    cin >> a >> b;
-    c = a*b;
-    d = a+b;
-    cout << "+: " << d << endl << "*: " << c;
+    int x = 10, y = 20 ,z;
+    z = (x > y)? x : y;
+    cout << z;
+
     return 0;
 }

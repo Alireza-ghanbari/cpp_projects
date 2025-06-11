@@ -1,14 +1,13 @@
 #include <iostream>
-#include <stdlib.h>
 
 using namespace std;
 
 int main() {
-
-    char c1, c2;
-    cout << "Enter a lowercase letter" << endl;
-    cin >> c1;
-    c2 = toupper(c1);
-    cout << c2 << endl;
+    float a,b,c,d;
+    cout << "Enter two float number" << endl;
+    cin >> a >> b;
+    c = a*b;
+    d = a+b;
+    cout << "+: " << d << endl << "*: " << c;
     return 0;
 }

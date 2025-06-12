@@ -5,9 +5,12 @@ using namespace std;
 
 int main()
 {
-    for (int j = 1; j <= 10; j++)
-    {
-        cout << rand() << endl;
-    }
+    unsigned seed, d1, d2;
+    cout << "Enter seed: ";
+    cin >> seed;
+    srand(seed);
+    d1 = 1 + rand() % 6;
+    d2 = 1 + rand() % 6;
+    cout << d1 << " & " << d2;
     return 0;
 }

@@ -4,13 +4,22 @@ using namespace std;
 
 int main()
 {
-    int count = 0;
-    while (1)
+    unsigned int n;
+    cout << "Enter a number: ";
+    cin >> n;
+    switch (n)
     {
-        count ++;
-        if(count >= 5)
+    case 0:
+        cout << "It is 0";
         break;
+    case 1:
+        cout << "It is 1";
+        break;
+    case 2:
+        cout << "It is 2";
+        break;
+    default:
+        cout << "default" << endl;
     }
-    cout << "counter: " << count << endl;
     return 0;
 }

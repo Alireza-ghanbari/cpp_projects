@@ -4,18 +4,13 @@ using namespace std;
 
 int main()
 {
-    int count, n;
-    float x, sum = 0, avg;
-    cout << "Enter number of scores: ";
-    cin >> n;
-    cout << "Enter " << n << " float number:" << endl;
-    while (count < n)
+    int count = 0;
+    while (1)
     {
-        cin >> x;
-        sum += x;
-        count++;
+        count ++;
+        if(count >= 5)
+        break;
     }
-    avg = sum / n;
-    cout << "Average of these " << n << " number is: " << avg << endl;
+    cout << "counter: " << count << endl;
     return 0;
 }

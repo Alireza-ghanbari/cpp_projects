@@ -5,16 +5,12 @@ using namespace std;
 
 int main()
 {
-    float x, s;
-    cout << "Enter x: ";
-    cin >> x;
-    if (x < 0)
-        cout << "x is negative" << endl;
+    int a, b, c;
+    cout << "Enter three real number: " << endl;
+    cin >> a >> b >> c;
+    if ((a < c + b) && (b < a + c) && (c < a + b))
+        cout << "It is a triangle";
     else
-    {
-        s = sqrt(x);
-        cout << "sqrt of x is: " << s << endl;
-    }
-
+        cout << "Not a triangle";
     return 0;
 }

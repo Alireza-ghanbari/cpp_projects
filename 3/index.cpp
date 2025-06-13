@@ -2,17 +2,19 @@
 
 using namespace std;
 
-char lowToUp(char c1)
+long int factorial(int n)
 {
-    char c2;
-    c2 = (c1 >= 'a' && c1 <= 'z') ? ('A' + c1 - 'a') : c2;
-    return (c2);
+    long int prod = 1;
+    if (n > 1)
+        for (int i = 2; i <= n; i++)
+            prod *= i;
+    return (prod);
 }
 
 int main()
 {
-    char x;
-    x = cin.get();
-    cout << lowToUp(x);
+    int n;
+    cin >> n;
+    cout << factorial(n);
     return 0;
 }

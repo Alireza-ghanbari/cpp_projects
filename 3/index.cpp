@@ -2,21 +2,19 @@
 
 using namespace std;
 
-long int fib(int);
+void reverse(void);
 
 int main()
 {
-    int n;
-    cout << "Enter an integer value: ";
-    cin >> n;
-    cout << "fibonacci = " << fib(n) << endl;
+    reverse();
     return 0;
 }
 
-long int fib(int n)
+void reverse(void)
 {
-    if (n == 1 || n == 2)
-        return 1;
-    else
-        return (fib(n - 1) + fib(n - 2));
+    char c;
+    if ((c = cin.get()) != '\n')
+        reverse();
+    cout << c;
+    return;
 }

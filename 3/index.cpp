@@ -2,19 +2,21 @@
 
 using namespace std;
 
-long int factorial(int n)
-{
-    long int prod = 1;
-    if (n > 1)
-        for (int i = 2; i <= n; i++)
-            prod *= i;
-    return (prod);
-}
+long int factorial(int);
 
 int main()
 {
     int n;
+    cout << "Enter n: ";
     cin >> n;
-    cout << factorial(n);
+    cout << "Factorial = " << factorial(n) << endl;
     return 0;
+}
+
+long int factorial(int n)
+{
+    if (n <= 1)
+        return (1);
+    else
+        return (n * factorial(n - 1));
 }

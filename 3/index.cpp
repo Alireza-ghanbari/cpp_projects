@@ -2,26 +2,22 @@
 
 using namespace std;
 
-int vfunct(int);
-void rfunct(int &);
+void fswap(float &, float &);
 
 int main()
 {
-    int x = 5, y = 10;
-    cout << x << endl
-         << vfunct(x) << endl
-         << x << endl;
-    cout << y << endl;
-    rfunct(y);
-    cout << y << endl;
+    float a = 5.2, b = 4.3;
+    cout << a << " - " << b;
+    fswap(a, b);
+    cout << endl;
+    cout << a << " - " << b;
     return 0;
 }
 
-int vfunct(int a)
+void fswap(float &x, float &y)
 {
-    return a *= a;
-}
-void rfunct(int &b)
-{
-    b *= b;
+    float t;
+    t = x;
+    x = y;
+    y = t;
 }

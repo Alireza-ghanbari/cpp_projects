@@ -2,21 +2,21 @@
 
 using namespace std;
 
-long int factorial(int);
+long int fib(int);
 
 int main()
 {
     int n;
-    cout << "Enter n: ";
+    cout << "Enter an integer value: ";
     cin >> n;
-    cout << "Factorial = " << factorial(n) << endl;
+    cout << "fibonacci = " << fib(n) << endl;
     return 0;
 }
 
-long int factorial(int n)
+long int fib(int n)
 {
-    if (n <= 1)
-        return (1);
+    if (n == 1 || n == 2)
+        return 1;
     else
-        return (n * factorial(n - 1));
+        return (fib(n - 1) + fib(n - 2));
 }

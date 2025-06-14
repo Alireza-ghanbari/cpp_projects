@@ -2,19 +2,21 @@
 
 using namespace std;
 
-void reverse(void);
+void modify(int[]);
 
 int main()
 {
-    reverse();
+    int a[5];
+    for (int i = 0; i < 5; i++)
+        a[i] = i + 1;
+    modify(a);
+    for (int i = 0; i < 5; i++)
+        cout << a[i] << endl;
     return 0;
 }
 
-void reverse(void)
+void modify(int a[])
 {
-    char c;
-    if ((c = cin.get()) != '\n')
-        reverse();
-    cout << c;
-    return;
+    for (int i = 0; i < 5; i++)
+        a[i] += 2;
 }

@@ -6,39 +6,32 @@ using namespace std;
 
 int main()
 {
-    ifstream inFile("input.txt");
-    ofstream outFile("result.txt");
+    string text;
+    cout << "Enter text: ";
+    getline(cin, text);
 
-    if (!inFile)
-    {
-        cerr << "error" << endl;
-        return 1;
-    }
+    int wordCount = 0, sentenceCount = 0;
+    bool inWord = false;
 
-    int count[26] = {};
-    char ch;
+    for(char ch : text){
+        if(isspace(ch)){
+            if(inWord){
+                wordCount++;
+                inWord = false;
+            }
+        }else if(isalpha(ch)){
+            inWord = true;
+        }
 
-    while (inFile.get(ch))
-    {
-        if (isalpha(ch))
-        {
-            ch = tolower(ch);
-            count[ch - 'a']++;
+        if(ch == '.' || ch == '?' || ch == '!'){
+            sentenceCount++;
         }
     }
 
-    for (int i = 0; i < 26; i++)
-    {
-        if (count[i] != 0)
-        {
-            outFile << char('a' + i) << ": " << count[i] << endl;
-        }
-    }
+    if(inWord) wordCount++;
 
-    inFile.close();
-    outFile.close();
-
-    cout << "result.txt updated" << endl;
+    cout << "Word count: " << wordCount << endl;
+    cout << "sentence count: " << sentenceCount << endl;
 
     return 0;
 }

@@ -1,24 +1,22 @@
 #include <iostream>
-#include <fstream>
-#include <cctype>
-
+#include <string>
 using namespace std;
 
-int main()
-{
-    char str [201];
+int main() {
+    string s;
     cout << "Enter text: ";
-    cin.getline(str, 201);
-
-    string s = str;
+    getline(cin, s);
 
     size_t pos = 0;
-    while((pos = s.find("IS", pos)) != string::npos){
-        s.replace(pos, 2, "WHERE"),
-        pos += 5;
+    while ((pos = s.find("is", pos)) != string::npos) {
+        if (pos >= 2 && s.substr(pos - 2, 4) == "this") {
+            pos += 2;
+            continue;
+        }
+        s.replace(pos, 2, "this");
+        pos += 4;
     }
 
-    cout << "Resault: " << s << endl;
-
+    cout << "Result: " << s << endl;
     return 0;
 }

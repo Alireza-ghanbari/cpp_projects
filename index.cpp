@@ -7,6 +7,7 @@ using namespace std;
 int main()
 {
     ifstream inFile("input.txt");
+    ofstream outFile("result.txt");
 
     if (!inFile)
     {
@@ -14,36 +15,30 @@ int main()
         return 1;
     }
 
+    int count[26] = {};
     char ch;
-    int i = 0, o = 0, u = 0, e = 0, a = 0;
 
     while (inFile.get(ch))
     {
-        switch (tolower(ch))
+        if (isalpha(ch))
         {
-        case 'a':
-            a++;
-            break;
-        case 'o':
-            o++;
-            break;
-        case 'i':
-            i++;
-            break;
-        case 'u':
-            u++;
-            break;
-        case 'e':
-            e++;
-            break;
+            ch = tolower(ch);
+            count[ch - 'a']++;
         }
     }
 
-    cout << "a: " << a << endl;
-    cout << "e: " << e << endl;
-    cout << "i: " << i << endl;
-    cout << "u: " << u << endl;
-    cout << "o: " << a << endl;
+    for (int i = 0; i < 26; i++)
+    {
+        if (count[i] != 0)
+        {
+            outFile << char('a' + i) << ": " << count[i] << endl;
+        }
+    }
+
+    inFile.close();
+    outFile.close();
+
+    cout << "result.txt updated" << endl;
 
     return 0;
 }

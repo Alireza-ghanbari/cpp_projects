@@ -11,7 +11,10 @@ int pascal(int n, int k)
 
 int main()
 {
-    int rows = 7;
+    int rows;
+
+    cout << "Enter number of rows: ";
+    cin >> rows;
 
     for (int i = 0; i < rows; i++)
     {

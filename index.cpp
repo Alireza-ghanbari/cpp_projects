@@ -1,22 +1,26 @@
 #include <iostream>
-#include <string>
+
 using namespace std;
 
-int main() {
-    string s;
-    cout << "Enter text: ";
-    getline(cin, s);
+int pascal(int n, int k)
+{
+    if (k == 0 || k == n)
+        return 1;
+    return pascal(n - 1, k - 1) + pascal(n - 1, k);
+}
 
-    size_t pos = 0;
-    while ((pos = s.find("is", pos)) != string::npos) {
-        if (pos >= 2 && s.substr(pos - 2, 4) == "this") {
-            pos += 2;
-            continue;
+int main()
+{
+    int rows = 7;
+
+    for (int i = 0; i < rows; i++)
+    {
+        for (int j = 0; j <= i; j++)
+        {
+            cout << pascal(i, j) << " ";
         }
-        s.replace(pos, 2, "this");
-        pos += 4;
+        cout << endl;
     }
 
-    cout << "Result: " << s << endl;
     return 0;
 }

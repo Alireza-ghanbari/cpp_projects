@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 
-struct Node; // to be able to use abbreviation in line 5, note that it's just a declaration not a definition
+struct Node;
 using std::cout, std::cin, std::cerr;
 using node_ptr = Node *;
 namespace instructions
@@ -11,7 +11,8 @@ namespace instructions
     std::string length = "length";
     std::string remove = "remove";
 };
-struct Node // actual definition of Node;
+
+struct Node
 {
     int value;
     node_ptr left, right;
@@ -22,15 +23,6 @@ struct List
     size_t length;
     node_ptr start;
 };
-
-/*----------------Functions---------------------
- *Here you can find necessary methods(functions), yet simple, of using linked list.
- * I have tried my best so that pre-implemented functions, like make_node etc., be as simple as it can be.
- *
- * You should complete following functions:
- * insert
- * traverse
- */
 
 node_ptr make_node(int value = 0, node_ptr left = nullptr, node_ptr right = nullptr)
 {
@@ -43,18 +35,62 @@ node_ptr make_node(int value = 0, node_ptr left = nullptr, node_ptr right = null
 
 void traverse(const struct List &list)
 {
-    /*
-     * This function will iterate through nodes in linked-list and
-     * print their values
-     */
+    if (!list.start)
+    {
+        cout << "The list is empty\n";
+        return;
+    }
+
+    node_ptr cur = list.start;
+    while (cur)
+    {
+        cout << cur->value;
+        if (cur->right)
+            cout << " ";
+        cur = cur->right;
+    }
+    cout << "\n";
+}
+
+void insert(struct List &list, int value)
+{
+    node_ptr new_node = make_node(value);
+
+    if (!list.start)
+    {
+        list.start = new_node;
+        list.length = 1;
+        return;
+    }
+
+    node_ptr cur = list.start;
+
+    if (value < cur->value)
+    {
+        new_node->right = cur;
+        cur->left = new_node;
+        list.start = new_node;
+        ++list.length;
+        return;
+    }
+
+    while (cur->right && cur->right->value < value)
+    {
+        cur = cur->right;
+    }
+
+    new_node->right = cur->right;
+    new_node->left = cur;
+
+    if (cur->right)
+        cur->right->left = new_node;
+
+    cur->right = new_node;
+    ++list.length;
 }
 
 void remove(struct List &list, int v)
 {
-    /*
-     * Iterate through linked list:
-     * removes all nodes which has value == v then removes it
-     */
     node_ptr cur = list.start;
     if (!cur)
         return;
@@ -89,27 +125,13 @@ void remove(struct List &list, int v)
         right_node->left = left_node;
 }
 
-void insert(struct List &list, int value = 0)
-{
-    /*
-     * Here you are instructed to implement insert function, which
-     * traverses through the list and insert the value into the list.
-     * This insertion should keep the list sorted, ascending.
-     */
-}
-
 void deallocate(struct List &list)
 {
-    /*
-     * It's important to release all the resources you have allocated
-     * through the program. By calling this function, it traverses the linked list and
-     * deallocates memory
-     */
     node_ptr cur = list.start;
     while (cur)
     {
         node_ptr tmp = cur;
-        cur = tmp->right;
+        cur = cur->right;
         delete tmp;
     }
     list.length = 0;

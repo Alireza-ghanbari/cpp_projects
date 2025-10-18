@@ -1,21 +1,28 @@
-#include "OS.h"
 #include <iostream>
+#include "SmartPhone.h"
 using namespace std;
 
 int main()
 {
-    OS myOS("Android", "12.0");
-    myOS.showInfo();
+    SmartPhone myPhone("Iphone Xs");
 
-    myOS.setName("IOS");
-    myOS.setVersion("14.1");
-    myOS.showInfo();
+    myPhone.showInfo();
 
-    myOS.updateOS("15.0");
+    myPhone.useBattery(25);
 
-    cout << "\nCurrent OS details:\n";
-    cout << "Name: " << myOS.getName() << endl;
-    cout << "Version: " << myOS.getVersion() << endl;
+    myPhone.chargeBattery(15);
+
+    cout << "\nCPU Info:\n";
+    myPhone.getCPU().showInfo();
+
+    cout << "\nFront Camera Info:\n";
+    myPhone.getFrontCamera().showInfo();
+
+    cout << "\nScreen Info:\n";
+    myPhone.getScreen().showInfo();
+
+    myPhone.setModel("Iphone X");
+    cout << "Model after update: " << myPhone.getModel() << endl;
 
     return 0;
 }

@@ -9,7 +9,6 @@ Battery::Battery(int capacity, double level)
 void Battery::drain(double percent)
 {
     levelPercent -= percent;
-    cout << "Battery drain: " << percent << "%" << endl;
     if (levelPercent < 0)
         levelPercent = 0;
 }
@@ -17,7 +16,6 @@ void Battery::drain(double percent)
 void Battery::charge(double percent)
 {
     levelPercent += percent;
-    cout << "Battery charge: " << percent << "%" << endl;;
     if (levelPercent > 100)
         levelPercent = 100;
 }

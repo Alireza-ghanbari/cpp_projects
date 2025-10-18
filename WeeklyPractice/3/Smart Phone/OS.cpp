@@ -12,7 +12,7 @@ void OS::showInfo() const
     cout << "Operating System: " << name << " v" << version << endl;
 }
 
-void OS::updateOS(const string newVersion)
+void OS::updateOS(const string &newVersion)
 {
     cout << "Checking for updates..." << endl;
     version = newVersion;
@@ -31,7 +31,7 @@ string OS::getVersion() const
 }
 
 // Setter
-void OS::setName(const string n)
+void OS::setName(const string &n)
 {
     if (!n.empty())
         name = n;
@@ -39,7 +39,7 @@ void OS::setName(const string n)
         cout << "OS name cannot be empty!" << endl;
 }
 
-void OS::setVersion(const string v)
+void OS::setVersion(const string &v)
 {
     if (!v.empty())
         version = v;

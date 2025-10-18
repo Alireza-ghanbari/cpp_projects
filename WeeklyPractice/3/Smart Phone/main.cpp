@@ -1,21 +1,26 @@
 #include <iostream>
-#include "Battery.h"
+#include "Screen.h"
 
 using namespace std;
 
 int main()
 {
-    Battery battery(5000, 80);
-    battery.showInfo();
+    Screen screen(12, "560x1080", Screen::PanelType::OLED);
+    screen.showInfo();
 
-    battery.drain(50);
-    cout << "Battery level: " << battery.getLevel() << endl;
+    screen.setSize(6.8);
+    screen.setResolution("1440x3200");
+    screen.setPanelType(Screen::PanelType::LCD);
 
-    battery.charge(80);
-    cout << "Battery level: " << battery.getLevel() << endl;
+    cout << "\nAfter updating screen properties:\n";
+    screen.showInfo();
 
-    battery.drain(100);
-    battery.showInfo();
+    cout << "\n--- Accessing individual properties ---\n";
+    cout << "Screen size: " << screen.getSize() << " inches\n";
+    cout << "Resolution: " << screen.getResolution() << "\n";
+    cout << "Panel type: "
+         << (screen.getPanelType() == Screen::PanelType::OLED ? "OLED" : "LCD")
+         << endl;
 
     return 0;
 }

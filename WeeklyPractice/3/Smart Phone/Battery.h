@@ -14,8 +14,6 @@ private:
 public:
     Battery(int capacity = 3000, double level = 100.0);
 
-    void drain(double percent);
-    void charge(double percent);
     double getLevel() const;
     void showInfo() const;
 };

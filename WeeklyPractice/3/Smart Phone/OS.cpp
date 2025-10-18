@@ -12,7 +12,6 @@ void OS::showInfo() const
     cout << "Operating System: " << name << " v" << version << endl;
 }
 
-// --- متد آپدیت سیستم عامل ---
 void OS::updateOS(const string newVersion)
 {
     cout << "Checking for updates..." << endl;

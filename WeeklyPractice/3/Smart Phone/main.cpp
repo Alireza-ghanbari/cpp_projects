@@ -1,20 +1,21 @@
+#include "OS.h"
 #include <iostream>
-#include "Camera.h"
 using namespace std;
 
 int main()
 {
-    Camera rearCam;
-    rearCam.showInfo();
+    OS myOS("Android", "12.0");
+    myOS.showInfo();
 
-    Camera frontCam(16, Camera::Position::FRONT);
-    frontCam.showInfo();
+    myOS.setName("IOS");
+    myOS.setVersion("14.1");
+    myOS.showInfo();
 
-    rearCam.setMegapixels(64);
-    rearCam.setPosition(Camera::Position::REAR);
+    myOS.updateOS("15.0");
 
-    cout << "\nAfter updating rear camera:\n";
-    rearCam.showInfo();
+    cout << "\nCurrent OS details:\n";
+    cout << "Name: " << myOS.getName() << endl;
+    cout << "Version: " << myOS.getVersion() << endl;
 
     return 0;
 }

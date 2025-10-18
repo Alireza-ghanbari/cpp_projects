@@ -1,26 +1,20 @@
 #include <iostream>
-#include "Screen.h"
-
+#include "Camera.h"
 using namespace std;
 
 int main()
 {
-    Screen screen(12, "560x1080", Screen::PanelType::OLED);
-    screen.showInfo();
+    Camera rearCam;
+    rearCam.showInfo();
 
-    screen.setSize(6.8);
-    screen.setResolution("1440x3200");
-    screen.setPanelType(Screen::PanelType::LCD);
+    Camera frontCam(16, Camera::Position::FRONT);
+    frontCam.showInfo();
 
-    cout << "\nAfter updating screen properties:\n";
-    screen.showInfo();
+    rearCam.setMegapixels(64);
+    rearCam.setPosition(Camera::Position::REAR);
 
-    cout << "\n--- Accessing individual properties ---\n";
-    cout << "Screen size: " << screen.getSize() << " inches\n";
-    cout << "Resolution: " << screen.getResolution() << "\n";
-    cout << "Panel type: "
-         << (screen.getPanelType() == Screen::PanelType::OLED ? "OLED" : "LCD")
-         << endl;
+    cout << "\nAfter updating rear camera:\n";
+    rearCam.showInfo();
 
     return 0;
 }

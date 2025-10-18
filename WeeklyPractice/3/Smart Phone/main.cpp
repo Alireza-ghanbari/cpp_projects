@@ -1,20 +1,21 @@
-#include "CPU.h"
 #include <iostream>
+#include "Battery.h"
+
 using namespace std;
 
 int main()
 {
-    CPU cpu(4, 2.4, "Intel");
-    cpu.showInfo();
+    Battery battery(5000, 80);
+    battery.showInfo();
 
-    cpu.setCores(8);
-    cpu.setFrequencyGHz(3.2);
-    cpu.setCreator("Razen");
+    battery.drain(50);
+    cout << "Battery level: " << battery.getLevel() << endl;
 
-    cout << "\nUpdated CPU Info:\n\n";
-    cout << "Cores: " << cpu.getCores() << endl;
-    cout << "Frequency: " << cpu.getFrequencyGHz() << " GHz" << endl;
-    cout << "Creator: " << cpu.getCreator() << endl;
+    battery.charge(80);
+    cout << "Battery level: " << battery.getLevel() << endl;
+
+    battery.drain(100);
+    battery.showInfo();
 
     return 0;
 }

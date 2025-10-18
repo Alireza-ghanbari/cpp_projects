@@ -10,7 +10,7 @@ CPU::CPU(int c, double f, string cr)
 void CPU::showInfo() const
 {
     cout << "CPU: " << cores << " cores, " << frequencyGHz
-         << "GHz, created by: " << creator << endl;
+         << " GHz, created by: " << creator << endl;
 }
 
 // Getter
